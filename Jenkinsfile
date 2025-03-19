@@ -3,7 +3,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "vaishnavi8754/docker-app:latest"  // Change this to your registry
         CONTAINER_NAME = "docker-running-app"
-        REGISTRY_CREDENTIALS = "vaishnavi8754"  // Jenkins credentials ID
+        REGISTRY_CREDENTIALS = "github-vaishu09"  // Jenkins credentials ID
     }
 
     stages {
@@ -23,7 +23,7 @@ pipeline {
 
         stage('Login to Docker Registry') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'vaishnavi8754', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'github-vaishu09', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                 }
             }
